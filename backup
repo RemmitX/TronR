@@ -1,0 +1,65 @@
+from trongame
+    class Snake {
+
+        int space[][] = new int[1000][1000];
+
+        void update(int direction) {
+
+            if (space[hx][hy]==1) {
+                System.out.println("Collision");
+            } else {
+                space[hx][hy] = 1;
+            }
+
+            if (direction==3) {
+                hy=hy+10;
+            } else if (direction==2) {
+                hx=hx+10;
+            } else if (direction==1) {
+                hy=hy-10;
+            } else if (direction==4) {
+                hx=hx-10;
+            }
+
+            sy[time] = hy;
+            sx[time] = hx;
+            time++;
+            System.out.println(time);
+
+        }
+
+    }
+
+    if (currHeadLoc.getX()==prevHeadLoc.getX() && currHeadLoc.getY()==prevHeadLoc.getY()) {
+        tail.add(new Coordinate(currHeadLoc.getX(), currHeadLoc.getY()));
+        System.out.println("case 5");
+    } else if (currHeadLoc.getX()!=prevHeadLoc.getX()) {
+        if (linev=='y') {
+            tail.add(new Coordinate(currHeadLoc.getX(), currHeadLoc.getY()));
+            System.out.println("case 1");
+        } else {
+            tail.set(tail.size()-1, new Coordinate(currHeadLoc.getX(), currHeadLoc.getY()));
+            System.out.println("case 2");
+        }
+        linev = 'x';
+    } else if (currHeadLoc.getY()!=prevHeadLoc.getY()) {
+        if (linev=='x') {
+            tail.add(new Coordinate(currHeadLoc.getX(), currHeadLoc.getY()));
+            System.out.println("case 3");
+        } else {
+            tail.set(tail.size()-1, new Coordinate(currHeadLoc.getX(), currHeadLoc.getY()));
+            System.out.println("case 4");
+        }
+        linev = 'y';
+    }
+
+    public void updateLoc2(int x, int y) {
+        this.loc2.setX(x);
+        this.loc2.setY(y);
+    }
+
+    for (TronGameObject bit: segments) {
+        bit.updateLoc2(tail.get(segments.indexOf(bit)).getX().intValue(), tail.get(segments.indexOf(bit)).getY().intValue());
+        System.out.println("My coordinate is " + bit.location.getX() + ", " + bit.location.getY());
+        System.out.println("My other is " + bit.loc2.getX() + ", " + bit.loc2.getY());
+    }
